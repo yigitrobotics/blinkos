@@ -17,3 +17,7 @@ void terminal_write(const char msg[], int x, int y, uint8_t color);
 void terminal_clear();
 void terminal_write_current(const char msg[], struct VGA_cursor *vga_cursor_index);
 void terminal_write_current_x(const char msg[], struct VGA_cursor *vga_cursor_index);
+void clear_with_shell(struct VGA_cursor *cursor);
+void print_banner();
+void disable_vga_cursor(void);
+void print_banner_little(struct VGA_cursor *cursor);

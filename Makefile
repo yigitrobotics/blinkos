@@ -2,16 +2,16 @@ CC      = i686-elf-gcc
 AS      = i686-elf-as
 NASM    = nasm
 
-CFLAGS  = -m32 -ffreestanding -fno-pie -fno-stack-protector
-LDFLAGS = -m32 -T src/linker.ld -ffreestanding -nostdlib
+CFLAGS    = -m32 -ffreestanding -fno-pie -fno-stack-protector
+LDFLAGS   = -m32 -T src/kernel/linker.ld -ffreestanding -nostdlib
 NASMFLAGS = -f elf32
 
-ISO     = blinkos.iso
-ROOT    = root
+ISO  = blinkos.iso
+ROOT = root
 
-C_SRCS    := $(shell find src -name '*.c')
-GAS_SRCS  := $(shell find src -name '*.s')
-NASM_SRCS := $(shell find src -name '*.asm')
+C_SRCS    := $(shell find src -type f -name '*.c')
+GAS_SRCS  := $(shell find src -type f -name '*.s')
+NASM_SRCS := $(shell find src -type f -name '*.asm')
 
 C_OBJS    := $(C_SRCS:.c=.o)
 GAS_OBJS  := $(GAS_SRCS:.s=.o)
@@ -40,11 +40,15 @@ kernel.bin: $(OBJS)
 	$(NASM) $(NASMFLAGS) $< -o $@
 
 run: $(ISO)
-	qemu-system-i386 -cdrom $(ISO) -display sdl -debugcon stdio
+	qemu-system-i386 \
+		-cdrom $(ISO) \
+		-display sdl \
+		-debugcon stdio
 
 clean:
-	find src \( -name '*.o' \) -delete
-	rm -f kernel.bin $(ISO) $(ROOT)/boot/kernel.bin
+	find src -type f -name '*.o' -delete
+	rm -f kernel.bin
+	rm -f $(ISO)
+	rm -f $(ROOT)/boot/kernel.bin
 
 .PHONY: all run clean
-
