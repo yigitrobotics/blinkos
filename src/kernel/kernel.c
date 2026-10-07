@@ -36,6 +36,7 @@ void test_io() {
 void kernel_main(void) {
     struct VGA_cursor cursor = {1, 1};
 
+    disable_vga_cursor();
     cli();
     flush_gdt();
     terminal_write_current("[LOG] GDT Loaded", &cursor);
@@ -49,7 +50,7 @@ void kernel_main(void) {
     terminal_clear();
 
     test_io();
-    terminal_write("BlinkOS Kernel BY YigitRobotics", 1, 1, GREEN_COLOR);
+    print_banner();
     delay_cycles(10000000);
     terminal_clear();
     sti();
