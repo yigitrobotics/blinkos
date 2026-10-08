@@ -41,8 +41,8 @@ void kernel_main(void) {
     flush_gdt();
     terminal_write_current("[LOG] GDT Loaded", &cursor);
     install_idt();
-    terminal_write_current("[LOG] IDT Loaded", &cursor);
     install_interrupt_handlers();
+    terminal_write_current("[LOG] IDT Loaded", &cursor);
     pic_remap();
     terminal_write_current("[LOG] PIC Remap Successful!", &cursor);
     terminal_write_current("[LOG] Kernel Loaded. Redirecting...", &cursor);
