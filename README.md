@@ -2,7 +2,7 @@
 
 BlinkOS is a personal hobby operating system project that I am developing to learn kernel development and low-level system programming.
 
-> ⚠️ This project is not AI-written.
+> "This project is built from scratch and developed entirely by me. The core architecture, kernel features, exception handling, and drivers are completely custom-written. AI assistants were only utilized as a productivity tool for writing boilerplate helper functions (e.g., input parsing)."
 
 ## Features
 
