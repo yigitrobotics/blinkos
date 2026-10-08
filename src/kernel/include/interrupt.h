@@ -16,10 +16,12 @@
 #define PIC_MODE 0x01
 
 extern void idt_load(uint32_t idt_ptr_addr);
+extern uint32_t exception_stub_table[];
 void idt_set_gate(uint8_t num, uint32_t base);
 void pic_remap(void);
 void install_idt();
 void install_interrupt_handlers();
+void exception_handler(uint8_t vector_num);
 
 struct idt_entry
 {

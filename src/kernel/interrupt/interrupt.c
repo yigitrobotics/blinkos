@@ -52,10 +52,14 @@ void install_idt() {
         idt[i] = 0;
     }
 
-    idt_load((uint32_t)&idt_ptr);
 }
 
 
 void install_interrupt_handlers() {
+    for (uint8_t i = 0; i < 32; i++) {
+        idt_set_gate(i, exception_stub_table[i]);
+    }
+
     idt_set_gate(0x21, (uint32_t)keyboard_interrupt);
+    idt_load((uint32_t)&idt_ptr);
 }
