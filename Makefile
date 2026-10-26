@@ -43,7 +43,9 @@ run: $(ISO)
 	qemu-system-i386 \
 		-cdrom $(ISO) \
 		-display sdl \
-		-debugcon stdio
+		-debugcon stdio \
+		-d int,cpu_reset \
+		-D qemu.log
 
 clean:
 	find src -type f -name '*.o' -delete
