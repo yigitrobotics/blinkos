@@ -18,6 +18,15 @@ BlinkOS is a personal hobby operating system project that I am developing to lea
 BlinkOS is currently under active development.
 The project is mainly focused on learning and experimenting with low-level system programming and operating system development.
 
+## Source Layout
+
+* `include/` contains the public headers shared by kernel and architecture code.
+* `src/kernel/` contains architecture-independent kernel facilities, such as future scheduling and timer interfaces.
+* `src/arch/i686/` contains i686-specific startup, interrupt, VGA, and hardware code.
+* `src/shell/` contains the shell and its commands.
+
+Keep architecture-specific implementations under `src/arch/<architecture>/` so another target can be added without mixing hardware code into the kernel core.
+
 ## How to Run
 
 ### Arch Linux

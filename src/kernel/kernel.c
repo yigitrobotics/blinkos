@@ -1,10 +1,10 @@
 struct VGA_cursor;
 
-#include "include/kernel.h"
-#include "include/gdt.h"
-#include "include/vga.h"
-#include "include/interrupt.h"
-#include "include/io.h"
+#include "kernel.h"
+#include "gdt.h"
+#include "vga.h"
+#include "interrupt.h"
+#include "io.h"
 
 void cli() {
     __asm__ volatile ("cli");

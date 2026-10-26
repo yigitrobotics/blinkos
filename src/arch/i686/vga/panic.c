@@ -1,5 +1,5 @@
-#include "../include/vga.h"
-#include "../include/kernel.h"
+#include "vga.h"
+#include "kernel.h"
 #include <stdarg.h>
 
 __attribute__((noreturn))

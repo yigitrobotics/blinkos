@@ -1,7 +1,7 @@
-#include "../include/keyboard.h"
-#include "../include/io.h"
-#include "../include/vga.h"
-#include "../../include/shell.h"
+#include "keyboard.h"
+#include "io.h"
+#include "vga.h"
+#include "shell.h"
 
 #define SUCCESS 1
 #define FAIL 0

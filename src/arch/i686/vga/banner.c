@@ -1,4 +1,4 @@
-#include "../include/vga.h"
+#include "vga.h"
 
 void print_banner() {
     terminal_write(".-. .-')                         .-') _ .-. .-')                 .-')", 1, 5, GREEN_COLOR);

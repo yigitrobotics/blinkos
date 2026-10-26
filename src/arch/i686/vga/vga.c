@@ -1,7 +1,7 @@
-#include "../include/vga.h"
-#include "../include/kernel.h"
+#include "vga.h"
+#include "kernel.h"
 #include <stdint.h>
-#include "../include/io.h"
+#include "io.h"
 
 void terminal_write(const char msg[], int x, int y, uint8_t color) {
     int index = y * 80 + x; 
