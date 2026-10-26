@@ -1,5 +1,5 @@
-#include "include/kernel.h"
-#include "include/gdt.h"
+#include "kernel.h"
+#include "gdt.h"
 #include <stdint.h>
 
 struct gdt_ptr

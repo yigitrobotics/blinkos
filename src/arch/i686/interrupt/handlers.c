@@ -1,5 +1,5 @@
-#include "../include/interrupt.h"
-#include "../include/vga.h"
+#include "interrupt.h"
+#include "vga.h"
 
 static const char *exception_names[32] = {
     "Divide Error",

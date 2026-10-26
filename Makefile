@@ -2,8 +2,8 @@ CC      = i686-elf-gcc
 AS      = i686-elf-as
 NASM    = nasm
 
-CFLAGS    = -m32 -ffreestanding -fno-pie -fno-stack-protector
-LDFLAGS   = -m32 -T src/kernel/linker.ld -ffreestanding -nostdlib
+CFLAGS    = -m32 -ffreestanding -fno-pie -fno-stack-protector -Iinclude
+LDFLAGS   = -m32 -T src/arch/i686/linker.ld -ffreestanding -nostdlib
 NASMFLAGS = -f elf32
 
 ISO  = blinkos.iso

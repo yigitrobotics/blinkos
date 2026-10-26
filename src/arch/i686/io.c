@@ -1,5 +1,5 @@
-#include "include/io.h"
-#include "include/kernel.h"
+#include "io.h"
+#include "kernel.h"
 
 void outb(uint16_t port, uint8_t value) { io_outb(port, value); }
 uint8_t inb(uint16_t port) {

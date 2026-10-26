@@ -1,4 +1,4 @@
-#include "../include/shell.h"
+#include "shell.h"
 
 int streq(const char *a, const char *b)
 {
@@ -126,6 +126,12 @@ int shell(struct VGA_cursor *cursor, char input_buffer[]) {
             } else if (streq(operation, "mul") == 1) {
                 result = operand1 * operand2;
             } else if (streq(operation, "div") == 1) {
+                if (operand2 == 0) {
+                    cursor->y++;
+                    terminal_write("Error: Division by zero", 1, cursor->y++, RED_COLOR);
+                    return FAILURE;
+                }
+
                 result = operand1 / operand2;
             } else {
                 cursor->y++;
@@ -141,13 +147,17 @@ int shell(struct VGA_cursor *cursor, char input_buffer[]) {
 
             return SUCCESS;
         }
+
+        else if (streq(input_buffer, "rboot") == 1) {
+            sys_reboot();
+        }
+        else {
+            cursor->y++;
+            terminal_write("Command not found sorry :(", 1, cursor->y++, RED_COLOR);
+        }
     }
 
 
-    else {
-        cursor->y++;
-        terminal_write("Command not found sorry :(", 1, cursor->y++, RED_COLOR);
-    }
 
     return FAILURE;
 }

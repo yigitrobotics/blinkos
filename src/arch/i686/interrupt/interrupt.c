@@ -1,8 +1,8 @@
-#include "../include/interrupt.h"
-#include "../include/kernel.h"
-#include "../include/vga.h"
-#include "../include/io.h"
-#include "../include/keyboard.h"
+#include "interrupt.h"
+#include "kernel.h"
+#include "vga.h"
+#include "io.h"
+#include "keyboard.h"
 #include <stdint.h>
 
 uint64_t idt[256];
